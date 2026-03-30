@@ -152,6 +152,7 @@ func get_shoot_direction():
 @rpc("any_peer", 'call_local')
 func register_hit(is_dead = false):
 	if is_dead:
+		sound_hit.play()
 		sound_ping.play()
 	else:
 		sound_hit.play()

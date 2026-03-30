@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyavwb4iw6rub" path="res://scenes/ui/main_menu.gd" id="1_sl1te"]
 [ext_resource type="Texture2D" uid="uid://b4o7vx0n8db1s" path="res://addons/tube/icons/tube_client.svg" id="2_fe2o3"]
+[ext_resource type="PackedScene" uid="uid://yubh30707eb7" path="res://scenes/environment/world_forest.tscn" id="3_1g8jr"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1482325763]
 script = ExtResource("1_sl1te")
@@ -41,6 +42,7 @@ theme_override_constants/separation = 24
 
 [node name="EnetMenu" type="VBoxContainer" parent="Control/Center/MarginContainer/HBoxContainer" unique_id=85887884]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/Center/MarginContainer/HBoxContainer/EnetMenu" unique_id=225050093]
@@ -64,7 +66,10 @@ layout_mode = 2
 [node name="LabelTitle" type="Label" parent="Control/Center/MarginContainer/HBoxContainer/TubeMenu" unique_id=455454260]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Androo Game"
+text = "Androo Friendslop 
+Tutorial Part 3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LabelUsername" type="Label" parent="Control/Center/MarginContainer/HBoxContainer/TubeMenu" unique_id=1449943180]
 layout_mode = 2
@@ -107,3 +112,6 @@ layout_mode = 2
 theme_override_constants/icon_max_width = 24
 text = "Create Session"
 icon = ExtResource("2_fe2o3")
+
+[node name="WorldForest" parent="." unique_id=451922858 instance=ExtResource("3_1g8jr")]
+unique_name_in_owner = true

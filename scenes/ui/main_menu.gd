@@ -15,6 +15,9 @@ extends CanvasLayer
 const WORLD_FOREST = preload("uid://yubh30707eb7")
 const PLAYER = preload("uid://dbcqeo103wau6")
 
+@onready var temp_world_forest: Node3D = %WorldForest
+
+
 func _ready() -> void:
 	if Network.tube_enabled:
 		enet_menu.hide()
@@ -34,24 +37,29 @@ func _ready() -> void:
 	Network.tube_client.error_raised.connect(on_error_raised)
 
 	if OS.has_feature('server'):
+		temp_world_forest.queue_free()
 		Network.start_server()
 		await get_tree().create_timer(0.1).timeout
 		add_world()
 
 func on_join():
+	temp_world_forest.queue_free()
 	Network.join_server()
 	add_world()
 
 func add_world():
+	temp_world_forest.queue_free()
 	var new_world = WORLD_FOREST.instantiate()
 	get_tree().current_scene.add_child(new_world)
 	hide()
 
 func on_join_tube():
+	temp_world_forest.queue_free()
 	Network.tube_join(line_edit_session.text)
 	multiplayer.connected_to_server.connect(add_world)
 
 func on_create_tube():
+	temp_world_forest.queue_free()
 	Network.tube_create()
 	add_world()
 
