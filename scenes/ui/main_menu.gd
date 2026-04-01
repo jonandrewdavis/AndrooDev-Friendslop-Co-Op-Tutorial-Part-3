@@ -12,6 +12,10 @@ extends CanvasLayer
 @onready var enet_menu: VBoxContainer = %EnetMenu
 @onready var tube_menu: VBoxContainer = %TubeMenu
 
+@onready var progress_container: MarginContainer = %ProgressContainer
+@onready var progress: TextureProgressBar = %Progress
+
+
 const WORLD_FOREST = preload("uid://yubh30707eb7")
 const PLAYER = preload("uid://dbcqeo103wau6")
 
@@ -46,7 +50,7 @@ func on_join():
 	temp_world_forest.queue_free()
 	Network.join_server()
 	add_world()
-
+	
 func add_world():
 	temp_world_forest.queue_free()
 	var new_world = WORLD_FOREST.instantiate()
@@ -54,9 +58,12 @@ func add_world():
 	hide()
 
 func on_join_tube():
-	temp_world_forest.queue_free()
+	tube_menu.hide()
+	progress_container.show()
 	Network.tube_join(line_edit_session.text)
 	multiplayer.connected_to_server.connect(add_world)
+	button_join_tube.disabled = true
+	show_spinner()
 
 func on_create_tube():
 	temp_world_forest.queue_free()
@@ -77,3 +84,11 @@ func on_error_raised(_code, _message):
 	button_join_tube.add_theme_color_override('font_disabled_color', Color.DARK_RED)
 	button_join_tube.disabled = true
 	Network.clean_up_signals()
+	tube_menu.show()
+	progress_container.hide()	
+	
+func show_spinner():
+	var radial_tween := create_tween()
+	radial_tween.set_loops()
+	radial_tween.tween_property(progress, 'radial_initial_angle', 360.0, 1.5).as_relative()
+	radial_tween.play()

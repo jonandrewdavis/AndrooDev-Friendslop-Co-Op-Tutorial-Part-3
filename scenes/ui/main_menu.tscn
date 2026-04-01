@@ -4,6 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://b4o7vx0n8db1s" path="res://addons/tube/icons/tube_client.svg" id="2_fe2o3"]
 [ext_resource type="PackedScene" uid="uid://yubh30707eb7" path="res://scenes/environment/world_forest.tscn" id="3_1g8jr"]
 
+[sub_resource type="Gradient" id="Gradient_1g8jr"]
+offsets = PackedFloat32Array(0.403125, 0.42113322, 0.5390505, 0.56202143)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m1kxf"]
+gradient = SubResource("Gradient_1g8jr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="MainMenu" type="CanvasLayer" unique_id=1482325763]
 script = ExtResource("1_sl1te")
 
@@ -113,5 +122,29 @@ theme_override_constants/icon_max_width = 24
 text = "Create Session"
 icon = ExtResource("2_fe2o3")
 
+[node name="ProgressContainer" type="MarginContainer" parent="Control/Center/MarginContainer/HBoxContainer" unique_id=2052281012]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="Control/Center/MarginContainer/HBoxContainer/ProgressContainer" unique_id=921794938]
+visible = false
+layout_mode = 2
+texture = SubResource("GradientTexture2D_m1kxf")
+
+[node name="Progress" type="TextureProgressBar" parent="Control/Center/MarginContainer/HBoxContainer/ProgressContainer" unique_id=2122085416]
+unique_name_in_owner = true
+layout_mode = 2
+value = 57.0
+fill_mode = 4
+radial_initial_angle = 138.2
+radial_fill_degrees = 154.0
+texture_progress = SubResource("GradientTexture2D_m1kxf")
+
 [node name="WorldForest" parent="." unique_id=451922858 instance=ExtResource("3_1g8jr")]
 unique_name_in_owner = true
+script = null
