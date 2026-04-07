@@ -27,6 +27,10 @@ const JUMP_VELOCITY = 4.5
 
 var immobile := false
 
+var is_dragging := false
+var drag_threshold := 10.0
+var drag_start := Vector2.ZERO
+
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(name))
 
@@ -61,6 +65,19 @@ func ready_client_visuals():
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_multiplayer_authority() or immobile:
 		return
+		
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			is_dragging = false
+			drag_start = event.position
+		else:
+			# Only attack if it was a tap (not a drag)
+			if not is_dragging:
+				attack(1)
+
+	if event is InputEventScreenDrag:
+		if event.position.distance_to(drag_start) > drag_threshold:
+			is_dragging = true
 	
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sensitivity)	
@@ -68,6 +85,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_3d.rotation.x = clamp(camera_3d.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _process(_delta: float) -> void:
+	# Get right stick input (normalized -1 to 1)
+	var look_x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	var look_y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
+	
+	# Deadzone (prevents drift)
+	var deadzone := 0.1
+	if abs(look_x) < deadzone:
+		look_x = 0
+	if abs(look_y) < deadzone:
+		look_y = 0
+
+	# Apply rotation (scaled by delta for smoothness)
+	head.rotate_y(-look_x * sensitivity * 5000 * _delta)
+	camera_3d.rotate_x(-look_y * sensitivity * 5000 * _delta)
+
+	# Clamp vertical rotation
+	camera_3d.rotation.x = clamp(
+		camera_3d.rotation.x,
+		deg_to_rad(-90),
+		deg_to_rad(90)
+	)
+	
 	if Input.is_action_just_pressed('menu'):
 		open_menu(player_ui.menu.visible)
 		

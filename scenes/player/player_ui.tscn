@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://pxj3b3e28fg3" path="res://addons/tube/inspector/icons/clipboard_icon.tres" id="1_32d7b"]
 [ext_resource type="Script" uid="uid://c35unm3ykc85i" path="res://scenes/player/player_ui.gd" id="1_m6sn8"]
 [ext_resource type="Texture2D" uid="uid://b1t8eqspo4bb6" path="res://assets/keyboard-&-mouse_sheet_default.png" id="3_fatww"]
+[ext_resource type="PackedScene" uid="uid://ca3gcbng16ce4" path="res://scenes/ui/touch_ui.tscn" id="4_mo8vb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfjak"]
 bg_color = Color(1, 1, 1, 1)
@@ -234,3 +235,6 @@ texture = SubResource("AtlasTexture_by614")
 [node name="Label" type="Label" parent="TopLeft/ControlsRoot/Control4" unique_id=1071699859]
 layout_mode = 2
 text = "Attack 2"
+
+[node name="TouchUI" parent="." unique_id=1184046274 instance=ExtResource("4_mo8vb")]
+mouse_filter = 2
