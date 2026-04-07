@@ -16,6 +16,8 @@ class_name PlayerUI
 @onready var button_start_round: Button = %ButtonStartRound
 @onready var controls_root: VBoxContainer = %ControlsRoot
 
+@onready var touch_ui: Control = $TouchUI
+
 var COLORS: Array[Color] = [
 	Color.MAGENTA,
 	Color.CRIMSON,
@@ -64,3 +66,9 @@ func render_item_list(new_info: Dictionary):
 func render_crystal_health(new_health: int):
 	progress_bar_crystal.value = new_health
 	
+
+func _process(delta: float) -> void:
+	if OS.get_name() == "iOS" or OS.get_name() == "Android":
+		touch_ui.show()
+	else:
+		touch_ui.hide()

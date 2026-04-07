@@ -19,6 +19,8 @@ const PLAYER = preload("uid://dbcqeo103wau6")
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	if Network.tube_enabled:
 		enet_menu.hide()
 	else:
@@ -48,7 +50,7 @@ func on_join():
 	add_world()
 
 func add_world():
-	temp_world_forest.queue_free()
+	#temp_world_forest.queue_free()
 	var new_world = WORLD_FOREST.instantiate()
 	get_tree().current_scene.add_child(new_world)
 	hide()
