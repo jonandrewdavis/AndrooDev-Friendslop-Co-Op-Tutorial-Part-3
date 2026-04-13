@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://durlbko8p6y4e" path="res://assets/kenney_prototype-textures/Vector/texture_08.svg" id="1_b5dff"]
 [ext_resource type="Texture2D" uid="uid://blvb6t4n6gmvm" path="res://assets/kenney_prototype-textures/PNG/Green/texture_09.png" id="2_3pli8"]
 [ext_resource type="PackedScene" uid="uid://cypdi1lb7klts" path="res://assets/models/crystal/scene.gltf" id="4_1o1l2"]
+[ext_resource type="Texture2D" uid="uid://bre1mxcfkv45g" path="res://assets/models/crystal/textures/crystal_17_2_baseColor.png" id="5_0wskc"]
 [ext_resource type="PackedScene" uid="uid://bdd85qyit7ih5" path="res://assets/models/castle_town/castle_town.glb" id="5_j6fc8"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mloxv"]
@@ -37,6 +38,10 @@ sky_material = SubResource("ProceduralSkyMaterial_b5dff")
 background_mode = 2
 sky = SubResource("Sky_3pli8")
 tonemap_mode = 3
+ssr_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
 fog_enabled = true
 fog_mode = 1
 fog_density = 0.4
@@ -71,6 +76,15 @@ plane = Plane(0, 0, -1, 0)
 flip_faces = true
 size = Vector2(50, 5)
 orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxoa6"]
+resource_name = "crystal_17_2"
+cull_mode = 2
+albedo_texture = ExtResource("5_0wskc")
+roughness = 0.6
+emission_enabled = true
+emission_energy_multiplier = 3.0
+emission_texture = ExtResource("5_0wskc")
 
 [node name="WorldForest" type="Node3D" unique_id=451922858]
 script = ExtResource("1_3pli8")
@@ -168,5 +182,19 @@ mesh = SubResource("PlaneMesh_j6fc8")
 [node name="Sketchfab_Scene" parent="." unique_id=1802840441 instance=ExtResource("4_1o1l2")]
 transform = Transform3D(1, 0, 0, 0, 0.8622221, 0.50653046, 0, -0.50653046, 0.8622221, 0, -1.9363611, 0)
 
+[node name="crystal17_2_crystal_17_2_0" parent="Sketchfab_Scene/Sketchfab_model/crystal_17_2_fbx/RootNode/crystal17_2" parent_id_path=PackedInt32Array(1802840441, 552189909) index="0" unique_id=2036176032]
+surface_material_override/0 = SubResource("StandardMaterial3D_dxoa6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_Scene" unique_id=1142296292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2821245, 1.340682)
+light_color = Color(0.65882355, 0.25490198, 0.7647059, 1)
+light_energy = 3.059
+light_indirect_energy = 3.765
+light_volumetric_fog_energy = 7.059
+light_size = 0.154
+omni_range = 21.43522
+
 [node name="castle_town" parent="." unique_id=953451669 instance=ExtResource("5_j6fc8")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.035551, 0, 61.95264)
+
+[editable path="Sketchfab_Scene"]

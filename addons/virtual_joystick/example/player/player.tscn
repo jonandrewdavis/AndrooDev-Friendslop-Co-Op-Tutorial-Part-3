@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c2yu8rdqmanb0"]
+
+[ext_resource type="Script" uid="uid://cp37133w1mhlw" path="res://addons/virtual_joystick/example/player/player.gd" id="1_1empw"]
+[ext_resource type="Texture2D" uid="uid://biwr78yxo1ikn" path="res://addons/virtual_joystick/example/player/players.png" id="2_0cvr6"]
+[ext_resource type="PackedScene" uid="uid://2r0jaep3ey5y" path="res://addons/virtual_joystick/example/weapon/weapon.tscn" id="3_682cq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_682cq"]
+atlas = ExtResource("2_0cvr6")
+region = Rect2(0, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sueia"]
+atlas = ExtResource("2_0cvr6")
+region = Rect2(0, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xp3m"]
+atlas = ExtResource("2_0cvr6")
+region = Rect2(24, 72, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86pyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_682cq")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sueia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xp3m")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0cvr6"]
+radius = 4.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D" unique_id=696289346]
+y_sort_enabled = true
+script = ExtResource("1_1empw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2060461277]
+texture_filter = 1
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_86pyt")
+animation = &"idle"
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=619912801]
+z_index = 1
+position = Vector2(0, -4)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_0cvr6")
+
+[node name="CurrentWeapon" type="Marker2D" parent="." unique_id=84761509]
+position = Vector2(0, -4)
+
+[node name="Weapon" parent="CurrentWeapon" unique_id=1377951183 instance=ExtResource("3_682cq")]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(14, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1555723250]
+position = Vector2(0, -4)
+zoom = Vector2(1.75, 1.75)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

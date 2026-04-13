@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <g id="Base">
+    <g id="Fill" style="opacity: .5;">
+      <circle cx="128" cy="128" r="128" style="stroke-width: 0px;"/>
+    </g>
+    <g>
+      <g id="btn_arrow_pressed">
+        <path d="m220.42,126.21l-17.53-8.76c-1.33-.66-2.89.3-2.89,1.79v17.53c0,1.49,1.56,2.45,2.89,1.79l17.53-8.76c1.47-.74,1.47-2.84,0-3.58Z" style="fill: #fff; stroke-width: 0px;"/>
+      </g>
+      <g id="btn_arrow_pressed-2" data-name="btn_arrow_pressed">
+        <path d="m35.58,126.21l17.53-8.76c1.33-.66,2.89.3,2.89,1.79v17.53c0,1.49-1.56,2.45-2.89,1.79l-17.53-8.76c-1.47-.74-1.47-2.84,0-3.58Z" style="fill: #fff; stroke-width: 0px;"/>
+      </g>
+      <g id="btn_arrow_pressed-3" data-name="btn_arrow_pressed">
+        <path d="m129.79,220.42l8.76-17.53c.66-1.33-.3-2.89-1.79-2.89h-17.53c-1.49,0-2.45,1.56-1.79,2.89l8.76,17.53c.74,1.47,2.84,1.47,3.58,0Z" style="fill: #fff; stroke-width: 0px;"/>
+      </g>
+      <g id="btn_arrow_pressed-4" data-name="btn_arrow_pressed">
+        <path d="m129.79,35.58l8.76,17.53c.66,1.33-.3,2.89-1.79,2.89h-17.53c-1.49,0-2.45-1.56-1.79-2.89l8.76-17.53c.74-1.47,2.84-1.47,3.58,0Z" style="fill: #fff; stroke-width: 0px;"/>
+      </g>
+    </g>
+    <g>
+      <circle cx="69.48" cy="69.48" r="4.5" style="fill: #fff; stroke-width: 0px;"/>
+      <circle cx="186.52" cy="186.52" r="4.5" style="fill: #fff; stroke-width: 0px;"/>
+      <circle cx="69.48" cy="186.52" r="4.5" style="fill: #fff; stroke-width: 0px;"/>
+      <circle cx="186.52" cy="69.48" r="4.5" style="fill: #fff; stroke-width: 0px;"/>
+    </g>
+    <g id="Edge">
+      <path d="m128,3c33.39,0,64.78,13,88.39,36.61,23.61,23.61,36.61,55,36.61,88.39s-13,64.78-36.61,88.39c-23.61,23.61-55,36.61-88.39,36.61s-64.78-13-88.39-36.61C16,192.78,3,161.39,3,128S16,63.22,39.61,39.61C63.22,16,94.61,3,128,3m0-3C57.31,0,0,57.31,0,128s57.31,128,128,128,128-57.31,128-128S198.69,0,128,0h0Z" style="fill: #fff; stroke-width: 0px;"/>
+    </g>
+  </g>
+</svg>

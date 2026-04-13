@@ -1,0 +1,287 @@
+[gd_scene format=3 uid="uid://ca3gcbng16ce4"]
+
+[ext_resource type="Texture2D" uid="uid://b1t8eqspo4bb6" path="res://assets/keyboard-&-mouse_sheet_default.png" id="1_evkrr"]
+[ext_resource type="Script" uid="uid://d361t8y6sahvi" path="res://addons/virtual_joystick/virtual_joystick.gd" id="2_dta07"]
+[ext_resource type="Texture2D" uid="uid://ufha6ls7safh" path="res://addons/virtual_joystick/textures/stick_texture.svg" id="3_i8f4x"]
+[ext_resource type="Texture2D" uid="uid://clc2p1pp5y2lh" path="res://addons/virtual_joystick/textures/base_texture.svg" id="4_k6mst"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cms1x"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(192, 832, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j606"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl14p"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(832, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf6br"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(960, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icf6o"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(64, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j606"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evkrr"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evkrr"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dta07"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(384, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8f4x"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(384, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6mst"]
+atlas = ExtResource("1_evkrr")
+region = Rect2(0, 128, 64, 64)
+
+[node name="TouchUI" type="Control" unique_id=1184046274]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1845037050]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Frame" type="CanvasLayer" parent="MarginContainer" unique_id=1769695620]
+
+[node name="Move" type="Control" parent="MarginContainer/Frame" unique_id=1525811740]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -256.0
+offset_right = 375.0
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Frame/Move" unique_id=173981667]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -202.0
+offset_right = 32.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="up" type="Control" parent="MarginContainer/Frame/Move/VBoxContainer" unique_id=1462299031]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+
+[node name="up" type="TouchScreenButton" parent="MarginContainer/Frame/Move/VBoxContainer/up" unique_id=950241302]
+texture_normal = SubResource("AtlasTexture_cms1x")
+shape = SubResource("RectangleShape2D_1j606")
+action = "forward"
+
+[node name="center" type="Control" parent="MarginContainer/Frame/Move/VBoxContainer" unique_id=118122153]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+
+[node name="down" type="Control" parent="MarginContainer/Frame/Move/VBoxContainer" unique_id=342351477]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+
+[node name="down" type="TouchScreenButton" parent="MarginContainer/Frame/Move/VBoxContainer/down" unique_id=983897429]
+texture_normal = SubResource("AtlasTexture_rl14p")
+shape = SubResource("RectangleShape2D_1j606")
+action = "backward"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Frame/Move" unique_id=764655441]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -134.0
+offset_right = 100.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="Control" parent="MarginContainer/Frame/Move/HBoxContainer" unique_id=1478745678]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+
+[node name="left" type="TouchScreenButton" parent="MarginContainer/Frame/Move/HBoxContainer/left" unique_id=1886546674]
+texture_normal = SubResource("AtlasTexture_qf6br")
+shape = SubResource("RectangleShape2D_1j606")
+action = "left"
+
+[node name="center" type="Control" parent="MarginContainer/Frame/Move/HBoxContainer" unique_id=463488333]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+
+[node name="right" type="Control" parent="MarginContainer/Frame/Move/HBoxContainer" unique_id=171263037]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+
+[node name="right" type="TouchScreenButton" parent="MarginContainer/Frame/Move/HBoxContainer/right" unique_id=1820987046]
+texture_normal = SubResource("AtlasTexture_icf6o")
+shape = SubResource("RectangleShape2D_1j606")
+action = "right"
+
+[node name="VirtualJoystick" type="Control" parent="MarginContainer/Frame/Move" unique_id=216487429]
+anchors_preset = 0
+offset_left = 110.0
+offset_top = -87.0
+offset_right = 150.0
+offset_bottom = -47.0
+script = ExtResource("2_dta07")
+mode = 2
+dynamic_area_top_margin = 0.36
+dynamic_area_right_margin = 0.375
+action_left = &"left"
+action_up = &"forward"
+action_right = &"right"
+action_down = &"backward"
+metadata/_custom_type_script = "uid://d361t8y6sahvi"
+
+[node name="Stick" type="TextureRect" parent="MarginContainer/Frame/Move/VirtualJoystick" unique_id=2082193951]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 200.0
+texture = ExtResource("3_i8f4x")
+
+[node name="Base" type="TextureRect" parent="MarginContainer/Frame/Move/VirtualJoystick" unique_id=337015523]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("4_k6mst")
+
+[node name="Buttons" type="Control" parent="MarginContainer/Frame" unique_id=535760012]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Frame/Buttons" unique_id=1337834664]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1711.0
+offset_top = -959.0
+offset_right = -1671.0
+offset_bottom = -919.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+
+[node name="attack1" type="Control" parent="MarginContainer/Frame/Buttons/MarginContainer" unique_id=766864075]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="attack1" type="TouchScreenButton" parent="MarginContainer/Frame/Buttons/MarginContainer/attack1" unique_id=1374456961]
+position = Vector2(892, 383)
+texture_normal = SubResource("AtlasTexture_1j606")
+shape = SubResource("RectangleShape2D_evkrr")
+action = "attack1"
+
+[node name="attack2" type="Control" parent="MarginContainer/Frame/Buttons/MarginContainer" unique_id=646445903]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="attack2" type="TouchScreenButton" parent="MarginContainer/Frame/Buttons/MarginContainer/attack2" unique_id=994873983]
+position = Vector2(873, 526)
+texture_normal = SubResource("AtlasTexture_evkrr")
+shape = SubResource("RectangleShape2D_1j606")
+action = "attack2"
+
+[node name="fireball" type="Control" parent="MarginContainer/Frame/Buttons/MarginContainer" unique_id=686751340]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="fireball" type="TouchScreenButton" parent="MarginContainer/Frame/Buttons/MarginContainer/fireball" unique_id=1200074446]
+position = Vector2(1033, 356)
+texture_normal = SubResource("AtlasTexture_dta07")
+shape = SubResource("RectangleShape2D_1j606")
+action = "shoot"
+
+[node name="jump" type="Control" parent="MarginContainer/Frame/Buttons/MarginContainer" unique_id=1182119917]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="jump" type="TouchScreenButton" parent="MarginContainer/Frame/Buttons/MarginContainer/jump" unique_id=1633706903]
+position = Vector2(989, 484)
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_i8f4x")
+shape = SubResource("RectangleShape2D_1j606")
+action = "jump"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Frame/Buttons" unique_id=1780368287]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1152.0
+offset_right = -1112.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="settings" type="Control" parent="MarginContainer/Frame/Buttons/MarginContainer2" unique_id=1977822918]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Settings" type="TouchScreenButton" parent="MarginContainer/Frame/Buttons/MarginContainer2/settings" unique_id=1796459898]
+position = Vector2(1042, 47)
+texture_normal = SubResource("AtlasTexture_k6mst")
+shape = SubResource("RectangleShape2D_1j606")
+action = "menu"

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c4wo244782xyf"]
+
+[ext_resource type="Script" uid="uid://cvdg5rqqthkk7" path="res://addons/virtual_joystick/example/weapon/projectile/projectile.gd" id="1_4rjge"]
+[ext_resource type="Texture2D" uid="uid://dyaaq10r85tfr" path="res://addons/virtual_joystick/example/weapon/weapons.png" id="2_4rjge"]
+
+[node name="Projectile" type="Node2D" unique_id=1043150314]
+z_index = 1
+texture_filter = 1
+script = ExtResource("1_4rjge")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1591445115]
+texture = ExtResource("2_4rjge")
+hframes = 10
+vframes = 4
+frame = 23
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1120599224]
+rect = Rect2(-5, -5, 10, 10)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

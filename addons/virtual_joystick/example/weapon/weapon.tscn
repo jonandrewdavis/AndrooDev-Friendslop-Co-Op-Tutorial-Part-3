@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://2r0jaep3ey5y"]
+
+[ext_resource type="Texture2D" uid="uid://dyaaq10r85tfr" path="res://addons/virtual_joystick/example/weapon/weapons.png" id="1_66s87"]
+[ext_resource type="Script" uid="uid://dyyaxg4ekrqbx" path="res://addons/virtual_joystick/example/weapon/weapon.gd" id="1_qcsmv"]
+
+[node name="Weapon" type="Node2D" unique_id=1377951183]
+script = ExtResource("1_qcsmv")
+
+[node name="Weapon" type="Sprite2D" parent="." unique_id=689221191]
+texture_filter = 1
+texture = ExtResource("1_66s87")
+hframes = 10
+vframes = 4
+frame = 5
+
+[node name="ProjectileSpawnPosition" type="Marker2D" parent="Weapon" unique_id=989908082]
+unique_name_in_owner = true
+position = Vector2(10, -2)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=377318209]
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

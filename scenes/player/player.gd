@@ -27,6 +27,11 @@ const JUMP_VELOCITY = 4.5
 
 var immobile := false
 
+var is_dragging := false
+var drag_threshold := 10.0
+var drag_start := Vector2.ZERO
+var touch_consumed_click := false
+
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(name))
 
@@ -37,6 +42,9 @@ func _ready():
 	arms_root.hide()
 	replicate_color_changed(player_ui.COLORS[0])
 	player_ui.hide()
+	
+	if OS.has_feature("mobile"):
+		_remap_attack_for_mobile()
 
 	if not is_multiplayer_authority():
 		set_process(false)
@@ -44,6 +52,16 @@ func _ready():
 		return
 	
 	ready_client_visuals()
+
+func _remap_attack_for_mobile():
+	# Remove all existing bindings for attack1
+	for event in InputMap.action_get_events("attack1"):
+		InputMap.action_erase_event("attack1", event)
+
+	# Add new binding (P key)
+	var key_event := InputEventKey.new()
+	key_event.physical_keycode = KEY_P
+	InputMap.action_add_event("attack1", key_event)
 
 func ready_client_visuals():
 	player_ui.show()
@@ -61,6 +79,21 @@ func ready_client_visuals():
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_multiplayer_authority() or immobile:
 		return
+		
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			is_dragging = false
+			drag_start = event.position
+			touch_consumed_click = false
+		else:
+			# Only attack if it was a tap (not a drag)
+			if not is_dragging:
+				touch_consumed_click = true
+				attack(1)
+
+	if event is InputEventScreenDrag:
+		if event.position.distance_to(drag_start) > drag_threshold:
+			is_dragging = true
 	
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sensitivity)	
@@ -68,6 +101,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_3d.rotation.x = clamp(camera_3d.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _process(_delta: float) -> void:
+	# Get right stick input (normalized -1 to 1)
+	var look_x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	var look_y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
+	
+	# Deadzone (prevents drift)
+	var deadzone := 0.1
+	if abs(look_x) < deadzone:
+		look_x = 0
+	if abs(look_y) < deadzone:
+		look_y = 0
+
+	# Apply rotation (scaled by delta for smoothness)
+	head.rotate_y(-look_x * sensitivity * 5000 * _delta)
+	camera_3d.rotate_x(-look_y * sensitivity * 5000 * _delta)
+
+	# Clamp vertical rotation
+	camera_3d.rotation.x = clamp(
+		camera_3d.rotation.x,
+		deg_to_rad(-90),
+		deg_to_rad(90)
+	)
+	
 	if Input.is_action_just_pressed('menu'):
 		open_menu(player_ui.menu.visible)
 		

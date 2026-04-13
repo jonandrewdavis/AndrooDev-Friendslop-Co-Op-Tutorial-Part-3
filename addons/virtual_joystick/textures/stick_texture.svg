@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <g id="Stick" style="opacity: .5;">
+    <circle cx="48" cy="48" r="48" style="fill: #fff; stroke-width: 0px;"/>
+  </g>
+  <g id="Stick-2" data-name="Stick">
+    <path d="m48,3c24.81,0,45,20.19,45,45s-20.19,45-45,45S3,72.81,3,48,23.19,3,48,3m0-3C21.49,0,0,21.49,0,48s21.49,48,48,48,48-21.49,48-48S74.51,0,48,0h0Z" style="fill: #fff; stroke-width: 0px;"/>
+  </g>
+</svg>

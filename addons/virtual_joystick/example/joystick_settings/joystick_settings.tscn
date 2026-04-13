@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://witp0ek2at6a"]
+
+[ext_resource type="Script" uid="uid://fecnqmawo0nj" path="res://addons/virtual_joystick/example/joystick_settings/joystick_settings.gd" id="1_wi5u8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6gk6i"]
+font_size = 12
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="JoystickSettings" type="FoldableContainer" unique_id=731922216]
+offset_right = 254.0
+offset_bottom = 215.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+title = "Joystick Name"
+script = ExtResource("1_wi5u8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1515626415]
+layout_mode = 2
+
+[node name="DisabledContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1861653581]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="DisabledCheckBox" type="CheckBox" parent="VBoxContainer/DisabledContainer" unique_id=418620197]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DisabledLabel" type="Label" parent="VBoxContainer/DisabledContainer" unique_id=78610174]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "disabled"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="ModeContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=236531411]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Space" type="Control" parent="VBoxContainer/ModeContainer" unique_id=1736740694]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="ModeLabel" type="Label" parent="VBoxContainer/ModeContainer" unique_id=1603292113]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "mode:"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="ModeOption" type="OptionButton" parent="VBoxContainer/ModeContainer" unique_id=1337487142]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+item_count = 3
+popup/item_0/text = "Static"
+popup/item_0/id = 0
+popup/item_1/text = "Dynamic"
+popup/item_1/id = 1
+popup/item_2/text = "Following"
+popup/item_2/id = 2
+
+[node name="DirectionContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1224678777]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Space" type="Control" parent="VBoxContainer/DirectionContainer" unique_id=987294964]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="DirectionLabel" type="Label" parent="VBoxContainer/DirectionContainer" unique_id=1718730266]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "direction:"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="DirectionOption" type="OptionButton" parent="VBoxContainer/DirectionContainer" unique_id=868882647]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+item_count = 5
+popup/item_0/text = "Direction 2 H"
+popup/item_0/id = 0
+popup/item_1/text = "Direction 2 V"
+popup/item_1/id = 1
+popup/item_2/text = "Direction 4"
+popup/item_2/id = 2
+popup/item_3/text = "Direction 8"
+popup/item_3/id = 3
+popup/item_4/text = "Direction 360"
+popup/item_4/id = 4
+
+[node name="BoundaryContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1592621363]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Space" type="Control" parent="VBoxContainer/BoundaryContainer" unique_id=641784023]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="BoundaryLabel" type="Label" parent="VBoxContainer/BoundaryContainer" unique_id=1818457860]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "boundary:"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="BoundarySlider" type="HSlider" parent="VBoxContainer/BoundaryContainer" unique_id=1746917208]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 1.5
+step = 0.01
+value = 1.0
+
+[node name="BoundaryValueLabel" type="Label" parent="VBoxContainer/BoundaryContainer" unique_id=1914763169]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "0.0"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="DeadzoneContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=965642482]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Space" type="Control" parent="VBoxContainer/DeadzoneContainer" unique_id=1510551016]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="DeadzoneLabel" type="Label" parent="VBoxContainer/DeadzoneContainer" unique_id=897554701]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "deadzone:"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="DeadzoneSlider" type="HSlider" parent="VBoxContainer/DeadzoneContainer" unique_id=1615298118]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+max_value = 0.5
+step = 0.01
+
+[node name="DeadzoneValueLabel" type="Label" parent="VBoxContainer/DeadzoneContainer" unique_id=1499390854]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "0.0"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="VibrationContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1200591307]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VibrationCheckBox" type="CheckBox" parent="VBoxContainer/VibrationContainer" unique_id=1006328752]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VibrationLabel" type="Label" parent="VBoxContainer/VibrationContainer" unique_id=1204136024]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "vibration:"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="VibrationSlider" type="HSlider" parent="VBoxContainer/VibrationContainer" unique_id=835860375]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="VibrationValueLabel" type="Label" parent="VBoxContainer/VibrationContainer" unique_id=2147427788]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "0.0"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[node name="EditorContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1272596605]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="EditorCheckBox" type="CheckBox" parent="VBoxContainer/EditorContainer" unique_id=770631710]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EditorLabel" type="Label" parent="VBoxContainer/EditorContainer" unique_id=1185632967]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "editor draw in game"
+label_settings = SubResource("LabelSettings_6gk6i")
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/DisabledContainer/DisabledCheckBox" to="." method="_on_disabled_check_box_pressed"]
+[connection signal="item_selected" from="VBoxContainer/ModeContainer/ModeOption" to="." method="_on_mode_option_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/DirectionContainer/DirectionOption" to="." method="_on_direction_option_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/BoundaryContainer/BoundarySlider" to="." method="_on_boundary_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/DeadzoneContainer/DeadzoneSlider" to="." method="_on_deadzone_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/VibrationContainer/VibrationCheckBox" to="." method="_on_vibration_check_box_pressed"]
+[connection signal="value_changed" from="VBoxContainer/VibrationContainer/VibrationSlider" to="." method="_on_vibration_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/EditorContainer/EditorCheckBox" to="." method="_on_editor_check_box_pressed"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bolodsplnqnqu"]
+
+[ext_resource type="Script" uid="uid://d361t8y6sahvi" path="res://addons/virtual_joystick/virtual_joystick.gd" id="1_8i1q7"]
+[ext_resource type="Texture2D" uid="uid://clc2p1pp5y2lh" path="res://addons/virtual_joystick/textures/base_texture.svg" id="2_frtuw"]
+[ext_resource type="Texture2D" uid="uid://ufha6ls7safh" path="res://addons/virtual_joystick/textures/stick_texture.svg" id="3_d1xpv"]
+
+[node name="VirtualJoystick" type="Control" unique_id=912784726]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8i1q7")
+
+[node name="Base" type="TextureRect" parent="." unique_id=894664117]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 128)
+texture = ExtResource("2_frtuw")
+
+[node name="Stick" type="TextureRect" parent="." unique_id=417944173]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 48)
+texture = ExtResource("3_d1xpv")

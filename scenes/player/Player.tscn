@@ -49,6 +49,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
 
+[node name="Cube" parent="Head/Camera3D/ArmsRoot/RightArm/arm_model/Armature/Skeleton3D" parent_id_path=PackedInt32Array(182167908, 1219037990, 1306069675) index="0" unique_id=1631942013]
+cast_shadow = 0
+
+[node name="Cube" parent="Head/Camera3D/ArmsRoot/LeftArm/arm_model/Armature/Skeleton3D" parent_id_path=PackedInt32Array(182167908, 177448408, 1306069675) index="0" unique_id=1631942013]
+cast_shadow = 0
+
 [node name="WeaponAnimationPlayer" parent="Head/Camera3D/ArmsRoot" index="3" unique_id=1887611211]
 autoplay = &"arm_model_animations/idle"
 
@@ -56,7 +62,7 @@ autoplay = &"arm_model_animations/idle"
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Head/AnimationLibrary_Godot_Standard/Rig" parent_id_path=PackedInt32Array(1638584414, 1752502228) index="0" unique_id=1672785789]
+[node name="Skeleton3D" parent="Head/AnimationLibrary_Godot_Standard/Rig" parent_id_path=PackedInt32Array(1638584414, 950007496) index="0" unique_id=1029986781]
 bones/1/position = Vector3(-0.054853383, 0.10045202, 0.6791631)
 bones/1/rotation = Quaternion(0.7780534, 0.13554485, 0.04072633, 0.61204726)
 bones/3/rotation = Quaternion(0.06205274, -0.050720986, 0.028211605, 0.99638397)
