@@ -345,7 +345,6 @@ func _process(delta: float):
 				interval_time_left = interval_time
 				interval_timeout.emit()
 	
-	
 	elif WebSocketPeer.STATE_CLOSING == state:
 		# Keep polling to achieve proper close.
 		pass

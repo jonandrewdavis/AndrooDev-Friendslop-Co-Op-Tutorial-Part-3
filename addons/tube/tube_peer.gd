@@ -222,7 +222,6 @@ func _on_ice_candidate_created(p_media: String, p_index: int, p_sdp: String):
 		
 		match_ports()
 	
-	
 	ice_candidate_created.emit()
 	
 	if is_signaling_ready() and not is_attempting_connection():

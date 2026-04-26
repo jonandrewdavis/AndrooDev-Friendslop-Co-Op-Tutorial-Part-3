@@ -15,12 +15,10 @@ extends CanvasLayer
 @onready var progress_container: MarginContainer = %ProgressContainer
 @onready var progress: TextureProgressBar = %Progress
 
-
 const WORLD_FOREST = preload("uid://yubh30707eb7")
 const PLAYER = preload("uid://dbcqeo103wau6")
 
 @onready var temp_world_forest: Node3D = %WorldForest
-
 
 func _ready() -> void:
 	if Network.tube_enabled:
