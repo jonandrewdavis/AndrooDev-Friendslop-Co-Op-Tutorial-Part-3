@@ -193,6 +193,32 @@ theme_override_constants/margin_bottom = 20
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="PanelContainer" type="PanelContainer" parent="TopLeft/ControlsRoot" unique_id=601526927]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopLeft/ControlsRoot/PanelContainer" unique_id=1090372865]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopLeft/ControlsRoot/PanelContainer/MarginContainer" unique_id=1834384424]
+layout_mode = 2
+
+[node name="Code" type="Label" parent="TopLeft/ControlsRoot/PanelContainer/MarginContainer/VBoxContainer" unique_id=1158848912]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "SESSION CODE:"
+
+[node name="LabelSessionBig" type="Label" parent="TopLeft/ControlsRoot/PanelContainer/MarginContainer/VBoxContainer" unique_id=1983777070]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+
 [node name="Control" type="HBoxContainer" parent="TopLeft/ControlsRoot" unique_id=1843814823]
 layout_mode = 2
 

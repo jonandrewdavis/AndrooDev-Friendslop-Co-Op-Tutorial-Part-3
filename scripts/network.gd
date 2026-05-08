@@ -100,12 +100,11 @@ func _on_request_completed(_result, _response_code, _headers, body):
 	if response and response.has("iceServers"):
 		temp_ice = response["iceServers"][1]
 		tube_client.context.turn_servers.append(temp_ice)
-		prints("DEBUG", tube_client.context.turn_servers)
+		#prints("DEBUG", tube_client.context.turn_servers)
 
 func set_turn_enabled(is_enabled: bool):
+	tube_client.context.turn_servers.clear()
 	if is_enabled and temp_ice:
 		tube_client.context.turn_servers.append(temp_ice)
 	elif is_enabled:
 		new_http_client.request("https://api.androodev.com/turn")
-	else:
-		tube_client.context.turn_servers = []

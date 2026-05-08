@@ -56,7 +56,7 @@ autoplay = &"arm_model_animations/idle"
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Head/AnimationLibrary_Godot_Standard/Rig" parent_id_path=PackedInt32Array(1638584414, 1752502228) index="0" unique_id=1672785789]
+[node name="Skeleton3D" parent="Head/AnimationLibrary_Godot_Standard/Rig" parent_id_path=PackedInt32Array(1638584414, 273961062) index="0" unique_id=1901437094]
 bones/1/position = Vector3(-0.054853383, 0.10045202, 0.6791631)
 bones/1/rotation = Quaternion(0.7780534, 0.13554485, 0.04072633, 0.61204726)
 bones/3/rotation = Quaternion(0.06205274, -0.050720986, 0.028211605, 0.99638397)

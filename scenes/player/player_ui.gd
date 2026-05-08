@@ -15,6 +15,7 @@ class_name PlayerUI
 @onready var option_button_color: OptionButton = %OptionButtonColor
 @onready var button_start_round: Button = %ButtonStartRound
 @onready var controls_root: VBoxContainer = %ControlsRoot
+@onready var label_session_big: Label = %LabelSessionBig
 
 var COLORS: Array[Color] = [
 	Color.MAGENTA,
@@ -31,6 +32,7 @@ func _ready() -> void:
 	button_copy_session.pressed.connect(func(): DisplayServer.clipboard_set(Network.tube_client.session_id))
 	DisplayServer.clipboard_set(Network.tube_client.session_id)
 	label_session.text = Network.tube_client.session_id
+	label_session_big.text = Network.tube_client.session_id
 
 	for single_color in COLORS:
 		var new_texture = GradientTexture2D.new()
